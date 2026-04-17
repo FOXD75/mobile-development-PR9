@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_circle"
+        android:title="Круг"/>
+    <item
+        android:id="@+id/action_oval"
+        android:title="Овал"/>
+    <item
+        android:id="@+id/action_ring"
+        android:title="Кольцо"/>
+</menu>
