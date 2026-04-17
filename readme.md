@@ -149,7 +149,7 @@ public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMen
 #### Задание 4: Объединение и тестирование
 1. Проверено, что главное меню появляется при нажатии на три точки в ActionBar.
 2. Проверено, что контекстное меню появляется при долгом нажатии на `ImageView`.
-3. Проверено, что все пункты меню выполняют задуманные действия.
+3. Проверено, что все пункты меню выполняют задуманные действия.<br>
 ![](images/image_1.png)<br>
 ![](images/image_2.png)<br>
 ![](images/image_3.png)<br>
@@ -164,10 +164,14 @@ public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMen
 **ContextMenu** (контекстное меню) — появляется при долгом нажатии на элементе интерфейса, предоставляет действия, специфичные для выбранного элемента<br>
 **PopupMenu** (всплывающее меню) — привязано к определённому View и появляется по нажатию
 
+---
+
 2. **Как создать главное меню (OptionsMenu)? Какие методы необходимо переопределить в Activity?**
 - Создать XML-файл в папке `res/menu/`
 - Переопределить метод `onCreateOptionsMenu()` для загрузки меню: `getMenuInflater().inflate(R.menu.main_menu, menu)`
 - Переопределить метод `onOptionsItemSelected()` для обработки выбора пунктов
+
+---
 
 3. **Для чего используется атрибут app:showAsAction? Какие значения он может принимать?**<br>
 Определяет отображение пункта меню в ActionBar или выпадающем меню. Значения:<br>
@@ -175,12 +179,18 @@ public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMen
 `never` — всегда скрывать в меню<br>
 `always` — всегда показывать (не рекомендуется)<br>
 
+---
+
 4. **Как зарегистрировать View для контекстного меню? В каком методе это обычно делается?**<br>
 Вызвать метод `registerForContextMenu(View view)` для нужного элемента. Обычно делается в методе `onCreate()`.
+
+---
 
 5. **В чём разница между методами onCreateContextMenu и onContextItemSelected?**<br>
 `onCreateContextMenu()` — создаёт/загружает контекстное меню (аналог `onCreateOptionsMenu()`)<br>
 `onContextItemSelected()` — обрабатывает выбор пункта меню (аналог `onOptionsItemSelected()`)
+
+---
 
 6. **Как создать контекстное меню динамически (программно), без использования XML-ресурса?**<br>
 Использовать метод `menu.add(groupId, itemId, order, title)` в методе `onCreateContextMenu()`:
@@ -189,8 +199,12 @@ menu.add(0, 1, 0, "Пункт 1");
 menu.add(0, 2, 1, "Пункт 2");
 ```
 
+---
+
 7. **Что возвращают методы onOptionsItemSelected и onContextItemSelected? Что означает возврат true?**<br>
 Оба метода возвращают `boolean`. Возврат `true` означает, что обработка выполнена успешно и событие дальше не передаётся.
+
+---
 
 8. **Как определить, для какого именно элемента было вызвано контекстное меню, если зарегистрировано несколько View?**<br>
 Использовать параметр `View v` в методе `onCreateContextMenu()` или `menuInfo` (например, `AdapterView.AdapterContextMenuInfo` для списков). Можно также проверять `v.getId()` для идентификации конкретного View.
